@@ -7,7 +7,7 @@
  * Copyright 2013- Alan Hong and contributors
  * Summernote may be freely distributed under the MIT license.
  *
- * Date: 2024-07-09T02:32Z
+ * Date: 2024-07-10T23:11Z
  *
  */
 @font-face {
@@ -389,12 +389,12 @@
 }
 .note-btn.disabled, .note-btn[disabled], fieldset[disabled] .note-btn {
     cursor: not-allowed;
-    -webkit-opacity: 0.65;
-    -khtml-opacity: 0.65;
-    -moz-opacity: 0.65;
-    opacity: 0.65;
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=65);
-    filter: alpha(opacity=65);
+    -webkit-opacity: 0.35;
+    -khtml-opacity: 0.35;
+    -moz-opacity: 0.35;
+    opacity: 0.35;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=35);
+    filter: alpha(opacity=35);
     box-shadow: none;
 }
 .note-btn > span.note-icon-caret:first-child {
