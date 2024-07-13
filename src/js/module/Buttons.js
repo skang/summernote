@@ -163,14 +163,13 @@ export default class Buttons {
             });
             /* TODO: do we have to record recent custom colors within cookies? */
             var customColors = [
-              //['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
-              ['tomato', 'coral', 'lime', 'mandy', 'aqua', 'purple', 'silver', '#FFFFFF'],
+              ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
             ];
             $dropdown.find('.note-holder-custom').each((idx, item) => {
               const $holder = $(item);
               $holder.append(this.ui.palette({
-                colors: this.options.customColors ? this.options.customColors: customColors,
-                colorsName: this.options.customColors ? this.options.customColors: customColors,
+                colors: this.options.customColors ?? customColors,
+                colorsName: this.options.customColorsName ?? this.options.customColors ?? customColors,
                 eventName: $holder.data('event'),
                 container: this.options.container,
                 tooltip: this.options.tooltip,
