@@ -7,7 +7,7 @@
  * Copyright 2013- Alan Hong and contributors
  * Summernote may be freely distributed under the MIT license.
  *
- * Date: 2024-07-10T23:11Z
+ * Date: 2024-07-13T22:21Z
  *
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -6724,12 +6724,14 @@ var Buttons = /*#__PURE__*/function () {
               }).render());
             });
             /* TODO: do we have to record recent custom colors within cookies? */
-            var customColors = [['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF']];
+            var customColors = [
+            //['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
+            ['tomato', 'coral', 'lime', 'mandy', 'aqua', 'purple', 'silver', '#FFFFFF']];
             $dropdown.find('.note-holder-custom').each(function (idx, item) {
               var $holder = external_root_jQuery_commonjs_jquery_commonjs2_jquery_amd_jquery_default()(item);
               $holder.append(_this.ui.palette({
-                colors: customColors,
-                colorsName: customColors,
+                colors: _this.options.customColors ? _this.options.customColors : customColors,
+                colorsName: _this.options.customColors ? _this.options.customColors : customColors,
                 eventName: $holder.data('event'),
                 container: _this.options.container,
                 tooltip: _this.options.tooltip
