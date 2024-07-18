@@ -7,7 +7,7 @@
  * Copyright 2013- Alan Hong and contributors
  * Summernote may be freely distributed under the MIT license.
  *
- * Date: 2024-07-13T23:29Z
+ * Date: 2024-07-18T04:03Z
  *
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -7836,7 +7836,8 @@ var LinkPopover = /*#__PURE__*/function () {
       if (rng.isCollapsed() && rng.isOnAnchor()) {
         var anchor = dom.ancestor(rng.sc, dom.isAnchor);
         var href = external_root_jQuery_commonjs_jquery_commonjs2_jquery_amd_jquery_default()(anchor).attr('href');
-        this.$popover.find('a').attr('href', href).text(href);
+        var disp = external_root_jQuery_commonjs_jquery_commonjs2_jquery_amd_jquery_default()(anchor).text();
+        this.$popover.find('a').attr('href', href).text(href).data('disp', disp);
         var pos = dom.posFromPlaceholder(anchor);
         var containerOffset = external_root_jQuery_commonjs_jquery_commonjs2_jquery_amd_jquery_default()(this.options.container).offset();
         pos.top -= containerOffset.top;
