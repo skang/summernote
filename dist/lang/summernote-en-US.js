@@ -1,33 +1,14 @@
-/*!
- * 
- * Super simple WYSIWYG editor v0.8.19
- * https://summernote.org
- *
- *
- * Copyright 2013- Alan Hong and contributors
- * Summernote may be freely distributed under the MIT license.
- *
- * Date: 2024-07-29T18:25Z
- *
- */
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("jquery"));
-	else if(typeof define === 'function' && define.amd)
-		define(["jquery"], factory);
-	else {
-		var a = typeof exports === 'object' ? factory(require("jquery")) : factory(root["jQuery"]);
-		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
-	}
-})(self, (__WEBPACK_EXTERNAL_MODULE__8938__) => {
-return /******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 8938:
+/***/ "jquery":
+/*!*************************!*\
+  !*** external "jQuery" ***!
+  \*************************/
 /***/ ((module) => {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__8938__;
+module.exports = jQuery;
 
 /***/ })
 
@@ -100,8 +81,11 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__8938__;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+/*!**************************************!*\
+  !*** ./src/lang/summernote-en-US.js ***!
+  \**************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8938);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 (jquery__WEBPACK_IMPORTED_MODULE_0___default().summernote) = (jquery__WEBPACK_IMPORTED_MODULE_0___default().summernote) || {
@@ -267,8 +251,6 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default().extend(true, (jquery__WEBPACK_IMPO
     }
   }
 });
-/******/ 	return __webpack_exports__;
 /******/ })()
 ;
-});
 //# sourceMappingURL=summernote-en-US.js.map
