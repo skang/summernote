@@ -1,8 +1,27 @@
-/******/ (() => { // webpackBootstrap
+/*!
+ * 
+ * Super simple WYSIWYG editor v0.8.19
+ * https://summernote.org
+ *
+ *
+ * Copyright 2013- Alan Hong and contributors
+ * Summernote may be freely distributed under the MIT license.
+ *
+ * Date: 2024-07-29T18:20Z
+ *
+ */
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(self, () => {
+return /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-/*!**************************************!*\
-  !*** ./src/lang/summernote-uz-UZ.js ***!
-  \**************************************/
 (function ($) {
   $.extend(true, $.summernote.lang, {
     'uz-UZ': {
@@ -115,6 +134,8 @@ var __webpack_exports__ = {};
     }
   });
 })(jQuery);
+/******/ 	return __webpack_exports__;
 /******/ })()
 ;
+});
 //# sourceMappingURL=summernote-uz-UZ.js.map
