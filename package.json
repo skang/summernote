@@ -22,7 +22,11 @@
   "scripts": {
     "dev": "eslint config && webpack serve --config=./config/webpack.development.js --progress",
     "prebuild": "node ./config/build-fonts.js",
+
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --node-env production --mode=production --config=./config/webpack.production.js --progress",
+    "builddev": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --node-env development --mode=development --config=./config/webpack.development.js --progress",
+    "gitpush": "git push origin develop",
+
     "lint": "eslint src plugin test config",
     "test": "vitest run",
     "test:watch": "vitest",

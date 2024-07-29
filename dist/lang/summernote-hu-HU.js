@@ -1,27 +1,8 @@
-/*!
- * 
- * Super simple WYSIWYG editor v0.8.19
- * https://summernote.org
- *
- *
- * Copyright 2013- Alan Hong and contributors
- * Summernote may be freely distributed under the MIT license.
- *
- * Date: 2024-07-18T04:03Z
- *
- */
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else {
-		var a = factory();
-		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
-	}
-})(self, () => {
-return /******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
+/*!**************************************!*\
+  !*** ./src/lang/summernote-hu-HU.js ***!
+  \**************************************/
 (function ($) {
   $.extend(true, $.summernote.lang, {
     'hu-HU': {
@@ -177,8 +158,6 @@ var __webpack_exports__ = {};
     }
   });
 })(jQuery);
-/******/ 	return __webpack_exports__;
 /******/ })()
 ;
-});
 //# sourceMappingURL=summernote-hu-HU.js.map

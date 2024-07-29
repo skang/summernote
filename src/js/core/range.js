@@ -552,6 +552,7 @@ class WrappedRange {
       rng = this.wrapBodyInlineWithPara().deleteContents();
     }
 
+    /*
     const info = dom.splitPoint(rng.getStartPoint(), dom.isInline(node));
     if (info.rightNode) {
       info.rightNode.parentNode.insertBefore(node, info.rightNode);
@@ -561,6 +562,8 @@ class WrappedRange {
     } else {
       info.container.appendChild(node);
     }
+     */
+    $(rng.getStartPoint().node).before(node);
 
     return node;
   }
