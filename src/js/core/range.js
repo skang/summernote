@@ -563,7 +563,7 @@ class WrappedRange {
       info.container.appendChild(node);
     }
      */
-    $(rng.getStartPoint().node).before(node);
+    $(rng.getStartPoint().node).after(node);
 
     return node;
   }

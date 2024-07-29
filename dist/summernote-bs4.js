@@ -7,7 +7,7 @@
  * Copyright 2013- Alan Hong and contributors
  * Summernote may be freely distributed under the MIT license.
  *
- * Date: 2024-07-29T18:20Z
+ * Date: 2024-07-29T18:25Z
  *
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -2745,7 +2745,7 @@ var WrappedRange = /*#__PURE__*/function () {
         info.container.appendChild(node);
       }
        */
-      external_root_jQuery_commonjs_jquery_commonjs2_jquery_amd_jquery_default()(rng.getStartPoint().node).before(node);
+      external_root_jQuery_commonjs_jquery_commonjs2_jquery_amd_jquery_default()(rng.getStartPoint().node).after(node);
       return node;
     }
 
