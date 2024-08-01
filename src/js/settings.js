@@ -257,7 +257,7 @@ $.summernote = $.extend($.summernote, {
     keyMap: {
       pc: {
         'ESC': 'escape',
-        'ENTER': 'insertParagraph',
+        //'ENTER': 'insertParagraph',
         'CTRL+Z': 'undo',
         'CTRL+Y': 'redo',
         'TAB': 'tab',
@@ -288,7 +288,7 @@ $.summernote = $.extend($.summernote, {
 
       mac: {
         'ESC': 'escape',
-        'ENTER': 'insertParagraph',
+        //'ENTER': 'insertParagraph',
         'CMD+Z': 'undo',
         'CMD+SHIFT+Z': 'redo',
         'TAB': 'tab',

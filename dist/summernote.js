@@ -7,7 +7,7 @@
  * Copyright 2013- Alan Hong and contributors
  * Summernote may be freely distributed under the MIT license.
  *
- * Date: 2024-07-30T14:09Z
+ * Date: 2024-08-01T05:39Z
  *
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -1133,6 +1133,18 @@ function wrap(node, wrapperName) {
  * @param {Node} node
  * @param {Node} preceding - predicate function
  */
+function insertBefore(node, curNode) {
+  var parent = curNode.parentNode;
+  parent.insertBefore(node, curNode);
+  return node;
+}
+
+/**
+ * insert node after preceding
+ *
+ * @param {Node} node
+ * @param {Node} preceding - predicate function
+ */
 function insertAfter(node, preceding) {
   var next = preceding.nextSibling;
   var parent = preceding.parentNode;
@@ -1551,9 +1563,12 @@ function splitNode(point, options) {
   if (isText(point.node)) {
     return point.node.splitText(point.offset);
   } else {
+    var clone;
     var childNode = point.node.childNodes[point.offset];
     var childNodes = listNext(childNode);
-    var clone = insertAfter(point.node.cloneNode(false), point.node);
+
+    //const clone = insertAfter(point.node.cloneNode(false), point.node);
+    clone = insertAfter(point.node.cloneNode(false), point.node);
     appendChildNodes(clone, childNodes);
     if (!isSkipPaddingBlankHTML) {
       paddingBlankHTML(point.node);
@@ -9054,7 +9069,7 @@ var HintPopover = /*#__PURE__*/function () {
     keyMap: {
       pc: {
         'ESC': 'escape',
-        'ENTER': 'insertParagraph',
+        //'ENTER': 'insertParagraph',
         'CTRL+Z': 'undo',
         'CTRL+Y': 'redo',
         'TAB': 'tab',
@@ -9084,7 +9099,7 @@ var HintPopover = /*#__PURE__*/function () {
       },
       mac: {
         'ESC': 'escape',
-        'ENTER': 'insertParagraph',
+        //'ENTER': 'insertParagraph',
         'CMD+Z': 'undo',
         'CMD+SHIFT+Z': 'redo',
         'TAB': 'tab',

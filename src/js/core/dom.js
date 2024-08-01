@@ -403,6 +403,18 @@ function wrap(node, wrapperName) {
  * @param {Node} node
  * @param {Node} preceding - predicate function
  */
+function insertBefore(node, curNode) {
+  let parent = curNode.parentNode;
+  parent.insertBefore(node, curNode);
+  return node;
+}
+
+/**
+ * insert node after preceding
+ *
+ * @param {Node} node
+ * @param {Node} preceding - predicate function
+ */
 function insertAfter(node, preceding) {
   const next = preceding.nextSibling;
   let parent = preceding.parentNode;
@@ -849,10 +861,12 @@ function splitNode(point, options) {
   if (isText(point.node)) {
     return point.node.splitText(point.offset);
   } else {
+    let clone;
     const childNode = point.node.childNodes[point.offset];
     let childNodes = listNext(childNode);
 
-    const clone = insertAfter(point.node.cloneNode(false), point.node);
+    //const clone = insertAfter(point.node.cloneNode(false), point.node);
+    clone = insertAfter(point.node.cloneNode(false), point.node);
     appendChildNodes(clone, childNodes);
 
     if (!isSkipPaddingBlankHTML) {
