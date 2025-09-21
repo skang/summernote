@@ -24,6 +24,7 @@ const minBanner = `Summernote v${pkg.version} | (c) 2013- Alan Hong and contribu
 
 module.exports = {
   mode: 'production',
+  devtool: 'source-map',
 
   performance: {
     maxEntrypointSize: 512000,
@@ -35,6 +36,17 @@ module.exports = {
 
   resolve: {
     roots: [path.resolve('./src')],
+    // These are the directories Webpack will search for modules
+    modules: [
+      // 1. Look in the summernote project's node_modules
+      path.resolve(__dirname, '../node_modules'),
+
+      // 2. ALSO look in the miniAppApi project's node_modules
+      path.resolve(__dirname, '../../miniAppApi/node_modules'),
+
+      // 3. Fallback to the default behavior
+      'node_modules',
+    ],
   },
 
   entry: Object.fromEntries([
@@ -86,6 +98,9 @@ module.exports = {
             },
           }, {
             loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react']
+            }
           },
         ],
       },
@@ -128,6 +143,10 @@ module.exports = {
         generator: {
           filename: './font/[name][ext]',
         },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/inline',
       },
     ],
   },

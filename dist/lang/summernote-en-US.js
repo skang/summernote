@@ -7,7 +7,7 @@
  * Copyright 2013- Alan Hong and contributors
  * Summernote may be freely distributed under the MIT license.
  *
- * Date: 2024-08-01T05:39Z
+ * Date: 2025-09-21T00:45Z
  *
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -19,15 +19,15 @@
 		var a = typeof exports === 'object' ? factory(require("jquery")) : factory(root["jQuery"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(self, (__WEBPACK_EXTERNAL_MODULE__8938__) => {
+})(self, (__WEBPACK_EXTERNAL_MODULE__58938__) => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 8938:
+/***/ 58938:
 /***/ ((module) => {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__8938__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__58938__;
 
 /***/ })
 
@@ -101,7 +101,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__8938__;
 /************************************************************************/
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8938);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(58938);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 (jquery__WEBPACK_IMPORTED_MODULE_0___default().summernote) = (jquery__WEBPACK_IMPORTED_MODULE_0___default().summernote) || {

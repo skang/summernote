@@ -1,6 +1,10 @@
 import $ from 'jquery';
 import env from '../core/env';
 import key from '../core/key';
+import remoteUI from '../../../../miniAppApi/remoteUI';
+import RemoteImageInput from "../../../../miniAppApi/components/RemoteImageInput";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
 export default class ImageDialog {
   constructor(context) {
@@ -10,6 +14,7 @@ export default class ImageDialog {
     this.$editor = context.layoutInfo.editor;
     this.options = context.options;
     this.lang = this.options.langInfo;
+    this.reactRoot = null;      // for remoteImageInput
   }
 
   initialize() {
@@ -24,7 +29,8 @@ export default class ImageDialog {
     const $container = this.options.dialogsInBody ? this.$body : this.options.container;
     const body = [
       '<div class="form-group note-form-group note-group-select-from-files">',
-        '<label for="note-dialog-image-file-' + this.options.id + '" class="note-form-label">' + this.lang.image.selectFromFiles + '</label>',
+        '<label style="display:inline;" for="note-dialog-image-file-' + this.options.id + '" class="note-form-label">' + this.lang.image.selectFromFiles
+        + '</label><div style="display: inline; float:right; margin-left: 10px;" id="react-custom-button-root-' + this.options.id + '"></div>',   //remoteUI.renderScribblyChatButton(),
         '<input id="note-dialog-image-file-' + this.options.id + '" class="note-image-input form-control-file note-form-control note-input" ',
         ' type="file" name="files" accept="'+this.options.acceptImageFileTypes+'" multiple="multiple"/>',
         imageLimitation,
@@ -96,6 +102,19 @@ export default class ImageDialog {
       this.ui.onDialogShown(this.$dialog, () => {
         this.context.triggerEvent('dialog.shown');
 
+        //show RemoteImageInput react component
+        const reactRootElement = document.getElementById('react-custom-button-root-' + this.options.id);
+        if (reactRootElement){
+          this.reactRoot = createRoot(reactRootElement);
+
+          const handleImageInsert = (index, imageUrl) => {
+            deferred.resolve(imageUrl);
+          };
+
+          // now you render using the import modules
+          this.reactRoot.render(<RemoteImageInput handleFileUpload={handleImageInsert} index={0} fromApp={"editor"}/>);
+        }
+
         // Cloning imageInput to clear element.
         $imageInput.replaceWith($imageInput.clone().on('change', (event) => {
           deferred.resolve(event.target.files || event.target.value);
@@ -118,6 +137,12 @@ export default class ImageDialog {
       });
 
       this.ui.onDialogHidden(this.$dialog, () => {
+        //Unmount RemoteImageInput
+        if (this.reactRoot){
+            this.reactRoot.unmount();
+            this.reactRoot = null;
+        }
+
         $imageInput.off();
         $imageUrl.off();
         $imageBtn.off();
